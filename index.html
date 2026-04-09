@@ -1,0 +1,608 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Connect with Kushal Diamonds.View contact details, save our digital business card, share QR code, and explore our services.">
+
+    <meta property="og:title" content="Kushal Diamonds | Digital Business Card">
+    <meta property="og:description" content="Connect with Kushal Diamonds. Save contact details, share QR code, and explore our services">
+    <meta property="og:image" content="https://goodconnext.com/card/KushalDiamonds/Assets/Profile/ProfileThumbnail.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.kushaldiamonds.in">
+
+    <meta name="author" content="Kushal Diamonds">
+
+    <meta name="msapplication-TileImage" content="https://goodconnext.com/card/KushalDiamonds/Assets/Profile/ProfileThumbnail.png">
+    <title>Kushal Diamonds | Digital Business Card</title>
+    <link  rel="icon" type="image/svg+xml" href="https://goodconnext.com/card/KushalDiamonds/Assets/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://goodconnext.com/card/KushalDiamonds/Assets/Profile/ProfileThumbnail.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://goodconnext.com/card/KushalDiamonds/css/style.css">
+    <!-- <link rel="stylesheet" href="https://goodconnext.com/card/KushalDiamonds/css/style.css"> -->
+     
+    <!-- slick slider css -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+    <script>
+        (function initializeCardUrlSupport() {
+            const currentUrl = new URL(window.location.href);
+            const decodeUrlValue = (value) => {
+                try {
+                    return decodeURIComponent(value.replace(/\+/g, ' '));
+                } catch (error) {
+                    return value;
+                }
+            };
+            let cardName = currentUrl.searchParams.get('@') || '';
+
+            if (!cardName) {
+                cardName = currentUrl.searchParams.get('name') || '';
+            }
+
+            const rawQuery = currentUrl.search.startsWith('?')
+                ? currentUrl.search.slice(1).trim()
+                : '';
+
+            if (!cardName && rawQuery && !rawQuery.includes('=') && !rawQuery.startsWith('@=')) {
+                cardName = rawQuery;
+            }
+
+            if (!cardName && currentUrl.hash.length > 1) {
+                cardName = currentUrl.hash.slice(1);
+            }
+
+            if (!cardName) {
+                const pathSegments = currentUrl.pathname.split('/').filter(Boolean);
+                const lastSegment = pathSegments[pathSegments.length - 1] || '';
+
+                if (lastSegment && !/\.[a-z0-9]+$/i.test(lastSegment)) {
+                    cardName = lastSegment;
+                }
+            }
+
+            cardName = decodeUrlValue(cardName).trim();
+
+            if (!cardName) {
+                return;
+            }
+
+            window.__cardName = cardName;
+
+            if (!window.__nativeURLSearchParams) {
+                window.__nativeURLSearchParams = window.URLSearchParams;
+                const NativeURLSearchParams = window.__nativeURLSearchParams;
+
+                const PatchedURLSearchParams = function (init) {
+                    let effectiveInit = init;
+
+                    if (typeof init === 'string') {
+                        const usesCurrentSearch = init === window.location.search;
+                        const params = new NativeURLSearchParams(init);
+
+                        if (usesCurrentSearch && !params.has('@') && window.__cardName) {
+                            effectiveInit = `?@=${encodeURIComponent(window.__cardName)}`;
+                        }
+                    }
+
+                    return new NativeURLSearchParams(effectiveInit);
+                };
+
+                PatchedURLSearchParams.prototype = NativeURLSearchParams.prototype;
+                Object.setPrototypeOf(PatchedURLSearchParams, NativeURLSearchParams);
+                window.URLSearchParams = PatchedURLSearchParams;
+            }
+        })();
+    </script>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+    <!-- shareon  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.iife.js" defer init></script>
+
+</head>
+<body>
+    <div class="content" id="content" >
+        <div class="cardbgcolorblock card1-bg" id="bgBlock">
+            <!-- <img src="https://goodconnext.com/card/KushalDiamonds/Assets/BannerBg.png" alt="BannerBg-img" srcset=""> -->
+        </div>
+        <div class="card-section">
+            
+            <!-- <div id="section1" class="tab-content active">
+                <p>Section 1 Content</p>
+            </div>
+
+            <div id="section2" class="tab-content">
+                <p>Section 2 Content</p>
+            </div> -->
+            <div class="container" id="container">	
+                <form action="">
+                    <div>
+                        <p>Exchange your contact with me </p>
+                        <span>
+                            <!-- <label for="name">Name :</label><br/> -->
+                            <input id="form-name" type="text" placeholder="Name" required="">
+                            <div class="err" id="nameerr"></div>
+                        </span>
+                        <span>
+                            <!-- <label for="Subject">Subject :</label></br> -->
+                            <input id="form-mobile" type="tel" placeholder="Mobile" required="">
+                            <div class="err" id="mobileerr"></div>
+                        </span>
+                        <span>
+                            <!-- <label for="email">Email :</label></br> -->
+                            <input id="form-email" type="email" placeholder="Email" required="">
+                            <div class="err" id="emailerr"></div>
+                        </span>
+                        <span>
+                            <!-- <label for="email">Email :</label></br> -->
+                            <input id="form-companyname" type="text" placeholder="Company Name">
+                            <div class="err" id="companyerr"></div>
+                        </span>
+                        <span>
+                            <!-- <label for="email">Email :</label></br> -->
+                            <input id="form-digitalcard" type="text" placeholder="Digital card">
+                            <div class="err" id="carderr"></div>
+                        </span>
+
+                    </div>
+                    <!-- <label for="message">Your Message :</label><br/> -->
+                    <div class="formbtn">
+                        <button type="button" onclick="sendToWhatsapp()">Submit</button>
+                        <button id="formclosebtn">Cancel</button>
+                    </div>  
+                </form>
+            </div>
+            <div class="card-parent tab-content active" id="card1">
+                <div class="video-container">
+                    <video src="https://goodconnext.com/card/KushalDiamonds/Assets/Video/Diamond.webm" autoplay muted loop></video>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-header" id="card-banner">
+                            <div class="card-banner">
+                                <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Banner.svg" alt="Banner">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="loading-container">
+                                <div class="after-content" id="after-content">
+                                    
+                                    
+                                    <div  class="profile-imagemaincontainer">
+                                        <div class="profile-image-container">
+                                            <div class="profile-image">
+                                                <img id="profile-image" src="https://goodconnext.com/card/KushalDiamonds/Assets/Profile/Profile.png" onerror='this.src="https://goodconnext.com/card/KushalDiamonds/Assets/Profile/Profile.png"' alt="profile-image"></img>
+                                            </div>
+                                        </div>                
+                                    </div>
+
+                                    <div class="name-container">
+                                        <div class="name-section">
+                                            <h2 class="name" id="name" title="name">Name</h2>
+                                            <h3 class="education" id="education"></h3>
+                                            <p class="title" id="role" title="role"> Role</p>            
+                                        </div>
+                                    </div>
+                                    <div class="contact-section">
+                                        <div class="left">
+                                            <div class="phone-container">
+                                                <span class="icon"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/phone_icon.svg" alt="phone_icon" srcset=""></span>
+                                                <div class="phone-numbers">
+                                                    <a href="#" title="Call Phone Number" style="font-weight: bold;" id="mobile">+91 123 456 7890</a>
+                                                </div>
+                                            </div>
+                                            <a href="mailto:email@mail.in" title="Send an Email"><span class="icon"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/email_icon.svg" alt="email_icon" srcset=""></span><span id="email">email@mail.in</span></a>
+                                            <!-- <a href="mailto:email@mail.in" title="Send an Email"><span class="icon"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/email_icon.svg" alt="email_icon" srcset=""></span><span id="secondaryemail">email@mail.in</span></a> -->
+                                        </div>
+                                        <div class="right">
+                                            <div class="social-media-links-left">
+                                                <a id="linkedin" href="https://www.linkedin.com/" title="Linkedin" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/linkedin_icon.svg" alt="linkedin_icon"></a>
+                                                <a id="whatsapp" href="https://wa.me/" title="Whatsapp" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/whatsapp_icon.svg" alt="whatsapp_icon"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="social-media-section" id="social-media-section">
+                                        
+                                        <div class="download-leftSection"> 
+                                            <a title="Exchange Contacts" target="_blank" id="openbtn"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/ExchangeContact.svg"></a>
+                                            <a  id="vcarddownloadBtn" title="Download VCard" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/SavetoContacts.svg" alt="VCard_icon"></a>
+                                            <a id="qrpreviewbtn" title="Download QRcode Image" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/Share_icon.svg" alt="Download_icon"></a>
+                                            <!-- <a id="downloadBtn" title="Download PDF" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/PDF_Icon.svg" alt="Download_icon"></a> -->  
+                                        </div>
+                                    </div>
+                                    <!-- <div class="exp-section">
+                                        <a id="pdf-download" target="_blank">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/MessageBox.svg" alt="Message Image" srcset="">
+                                        </a>
+                                    </div> -->
+                                    <!-- <div class="video-section">
+                                        <video src="https://goodconnext.com/card/KushalDiamonds/Assets/Videos/Citrus.webm" autoplay muted loop></video>
+                                    </div> -->
+                                    <div class="services-section">
+                                        <!-- <ul id="services">
+                                            <li>End-to-End Management of <b>Compliance Risk</b> & <b>Operational Risk</b></li>
+                                            <li><b>Comprehensive Dashboard</b> for Management with <b>Compliance Health </b>Index</li>
+                                            <li><b>Risk</b> Assessment & <b>Scenario</b> Analysis, <b>RCSA</b> & <b>Breach</b> / <b>Incident</b> Reporting</li>
+                                            <li><b>Offline</b> Monitoring of <b>Risks</b></li>
+                                            <li><b>Risks & </b>Controls Library</li>
+                                            <li><b>Global Integrated</b> view of <b>Risk</b></li>
+                                        </ul>
+                                        <div class="service-slider">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service1.png" alt="Service Image">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service2.png" alt="Service Image">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service3.png" alt="Service Image">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service4.png" alt="Service Image">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service5.png" alt="Service Image">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service6.png" alt="Service Image">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service7.png" alt="Service Image">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service8.png" alt="Service Image">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service9.png" alt="Service Image">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service10.png" alt="Service Image">
+                                        </div> -->
+                                        <img src="https://goodconnext.com/card/KushalDiamonds/Assets/MessageBox.svg" alt="Message Image" srcset="">
+                                    </div>     
+
+                                    <!-- <div class="tech-msg-section">
+                                        <img src="https://goodconnext.com/card/KushalDiamonds/Assets/MessageTxt.svg" alt="message text" srcset="">
+                                        <img src="https://goodconnext.com/card/KushalDiamonds/Assets/TechIndia_Photo.png" alt="tech_images" srcset="">
+                                    </div> -->
+                                        
+                                        <!-- <div class="service-section">
+                                            <div class="service-contents mySlider">
+                                                <a href="https://www.datalyzer.com" target="_blank">
+                                                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service1.png" alt="service1-img" srcset="">
+                                                </a>
+                                                <a href="https://www.datalyzer.com" target="_blank">
+                                                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service2.png" alt="service2-img" srcset="">
+                                                </a>
+                                                <a href="https://www.datalyzer.com" target="_blank">
+                                                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service3.png" alt="service3-img" srcset="">
+                                                </a>
+                                                <a href="https://www.datalyzer.com" target="_blank">
+                                                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service4.png" alt="service4-img" srcset="">
+                                                </a>
+                                                <a href="https://www.datalyzer.com" target="_blank">
+                                                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service5.png" alt="service5-img" srcset="">
+                                                </a>
+                                                <a href="https://www.datalyzer.com" target="_blank">
+                                                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service6.png" alt="service6-img" srcset="">
+                                                </a>
+                                                <a href="https://www.datalyzer.com" target="_blank">
+                                                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service7.png" alt="service7-img" srcset="">
+                                                </a>
+                                                <a href="https://www.datalyzer.com" target="_blank">
+                                                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service8.png" alt="service8-img" srcset="">
+                                                </a>
+                                                <a href="https://www.datalyzer.com" target="_blank">
+                                                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service9.png" alt="service9-img" srcset="">
+                                                </a>
+                                                <a href="https://www.datalyzer.com" target="_blank">
+                                                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Services/Service10.png" alt="service10-img" srcset="">
+                                                </a>
+                                            </div> -->
+                                            <!-- <div class="service-footer">
+                                                <img src="https://goodconnext.com/card/KushalDiamonds/Assets/DownloadProfile.svg" alt="Download Profile" srcset="">
+                                                
+                                            </div> -->
+                                        <!-- </div> -->
+                                        <!-- <div class='player-container'>
+                                            <div class='player'>
+                                            <video id='video' src='https://goodconnext.com/card/KushalDiamonds/Assets/Video/Showreel.webm' autoplay playsinline loop></video>
+                                                <div class='play-btn-big'></div>
+                                                <div class='controls'>
+                                                    <div class='controls-main'>
+                                                        <div class='controls-left'>
+                                                            <div class='volume'>
+                                                                <div class='volume-btn loud'>
+                                                                    <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                        <path d="M6.75497 17.6928H2C0.89543 17.6928 0 16.7973 0 15.6928V8.30611C0 7.20152 0.895431 6.30611 2 6.30611H6.75504L13.9555 0.237289C14.6058 -0.310807 15.6 0.151473 15.6 1.00191V22.997C15.6 23.8475 14.6058 24.3098 13.9555 23.7617L6.75497 17.6928Z" transform="translate(0 0.000518799)" fill="white"/>
+                                                                        <path id="volume-low" d="M0 9.87787C2.87188 9.87787 5.2 7.66663 5.2 4.93893C5.2 2.21124 2.87188 0 0 0V2C1.86563 2 3.2 3.41162 3.2 4.93893C3.2 6.46625 1.86563 7.87787 0 7.87787V9.87787Z" transform="translate(17.3333 7.44955)" fill="white"/>
+
+                                                                        <path id="volume-high" d="M0 16.4631C4.78647 16.4631 8.66667 12.7777 8.66667 8.23157C8.66667 3.68539 4.78647 0 0 0V2C3.78022 2 6.66667 4.88577 6.66667 8.23157C6.66667 11.5773 3.78022 14.4631 0 14.4631V16.4631Z" transform="translate(17.3333 4.15689)" fill="white"/> 
+                                                                <path id="volume-off" d="M1.22565 0L0 1.16412L3.06413 4.0744L0 6.98471L1.22565 8.14883L4.28978 5.23853L7.35391 8.14883L8.57956 6.98471L5.51544 4.0744L8.57956 1.16412L7.35391 0L4.28978 2.91031L1.22565 0Z" transform="translate(17.3769 8.31403)" fill="white"/>
+                                                                    </svg>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class='play-btn paused'></div>
+                                                        <div class="controls-right">
+                                                            <div class='fullscreen'>
+                                                                <svg width="30" height="22" viewBox="0 0 30 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 0V-1.5H-1.5V0H0ZM0 18H-1.5V19.5H0V18ZM26 18V19.5H27.5V18H26ZM26 0H27.5V-1.5H26V0ZM1.5 6.54545V0H-1.5V6.54545H1.5ZM0 1.5H10.1111V-1.5H0V1.5ZM-1.5 11.4545V18H1.5V11.4545H-1.5ZM0 19.5H10.1111V16.5H0V19.5ZM24.5 11.4545V18H27.5V11.4545H24.5ZM26 16.5H15.8889V19.5H26V16.5ZM27.5 6.54545V0H24.5V6.54545H27.5ZM26 -1.5H15.8889V1.5H26V-1.5Z" transform="translate(2 2)" fill="white"/>
+                                            </svg>
+
+                                            </svg>
+                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    <div class="product-section">
+                                        <div>
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Product/Product1.png" alt="Product Image">
+                                        </div>
+                                        <div>
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Product/Product2.png" alt="Product Image">
+                                        </div>
+                                        <div>
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Product/Product3.png" alt="Product Image">
+                                        </div>
+                                        <div>
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Product/Product4.png" alt="Product Image">
+                                        </div>
+                                        <div>
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Product/Product5.png" alt="Product Image">
+                                        </div>
+                                        <div>
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Product/Product6.png" alt="Product Image">
+                                        </div>
+                                        <div>
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Product/Product7.png" alt="Product Image">
+                                        </div>
+                                        <div>
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Product/Product8.png" alt="Product Image">
+                                        </div>
+                                        <div>
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Product/Product9.png" alt="Product Image">
+                                        </div>
+                                        <div>
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Product/Product10.png" alt="Product Image">
+                                        </div>
+                                    </div>
+                                    <div class="service-block">
+                                        <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Service_Block.svg" alt="Service Block Image" srcset="">
+                                    </div>
+                                    <div class="company-section">
+                                        <div class="company-name-container">
+                                            <h2 class="company-name" id="company-name" title="Company Name">Kushal Diamonds</h2>
+                                            <h2 class="company-description" id="company-description" title="Company Description">
+                                                Wholesale Dealers in <b>Polish Diamonds</b> and <b>Custom Made Jewellery</b>
+                                            </h2>
+                                        </div>
+                                        <div class="download-brochure">
+                                            <a href="https://goodconnext.com/card/KushalDiamonds/Assets/Profile/KushalDiamondsProfile.pdf" download target="_blank">
+                                                <img src="https://goodconnext.com/card/KushalDiamonds/Assets/DownloadBrochure.svg" alt="Download Brochure Image" srcset="">
+                                            </a>
+                                        </div>
+                                        <div class="company-address-container">
+                                            <div class="left">
+                                                <p class="company-address" id="company-address">
+                                                    Shop #18 ,2nd Floor, Nathella Jubilee Plaza <br> NSC Bose Road, Chennai, Tamil Nadu <br> INIDA - 600 079
+                                                </p>
+                                            </div>
+                                            <!-- <div class="right">
+                                                <a href="https://maps.app.goo.gl/" title="Company Gmap Link" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/googlemap_icon.svg" alt="gmap_icon"></a>
+                                            </div> -->
+                                        </div>
+                                        <!-- 
+                                        <div class="company-address-container">
+                                            <div class="left">
+                                                <h3 class="location">
+                                                    Mumbai, INDIA
+                                                </h3>
+                                                <p class="company-address" id="company-address">
+                                                    B205, Raylon Arcade, 2nd Floor, Ramkrishna Mandir Road, Kondivita, Andheri East, Mumbai - 400 059, INDIA
+                                                </p>
+                                            </div>
+                                            <div class="right">
+                                                <a href="https://maps.app.goo.gl/dLic3JV6uFtJY4fbA" title="Company Gmap Link" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/googlemap_icon.svg" alt="gmap_icon"></a>
+                                            </div>
+                                        </div>
+                                        -->
+                                        <div class="company-contact">
+                                            <a href="tel:+919840098390" class="company-mobile">+91<b>98400 98390</b></a>
+                                            <!-- <span class="mobile-spliter">,</span> -->
+                                            <!-- <a href="tel:+919791154528" class="company-mobile"><b>97911 54528</b> </a> -->
+                                        </div>
+                                        <a href="mailto:jayshah1976@gmail.com" class="company-email"><b>jayshah1976@gmail.com</b></a>
+                                    </div>
+                                    <!-- <div class="brochure-section">
+                                        <a href="https://goodconnext.com/card/KushalDiamonds/Assets/Profile/CitrusBrochure.pdf" target="_blank">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/DownloadBrochure_Citrus.svg" alt="Download Brochure Image" srcset="">
+                                        </a>
+                                    </div> -->
+                                    <!-- <div class="review-section">
+                                        <a href="https://share.google/e1m5615TuSGfIIeeW" target="_blank">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Google_Review.svg" alt="Google Review Image" srcset="">
+                                        </a>
+                                        <a href="https://www.justdial.com/Bangalore/Gamya-Solution-Near-Vybhav-Hotel-Yediyur-Lake-Road-Basavanagudi/080PXX80-XX80-210614124532-Q8M2_BZDET" target="_blank">
+                                            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/JustDial_Review.svg" alt="Justdial Review Image" srcset="">
+                                        </a>
+                                    </div> -->
+                                    <div class="website-section">
+                                        <div class="card_companywebsite">
+                                            <a href="https://www.kushaldiamonds.in" title="Visit Website" target="_blank"><span id="website">www.<b>kushaldiamonds</b>.in</span></a>
+                                        </div>
+                                        <!-- <div class="company-social-media-section">
+                                            <a href="https://x.com/" title="X" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/xcom_icon.svg" alt="X_icon"></a>
+                                            <a href=" https://www.facebook.com/" title="Facebook" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/facebook_icon.svg" alt="facebook_icon"></a>
+                                            <a href="https://www.instagram.com/multimeta.ai/" title="Instagram" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/Instagram_icon.svg" alt="instagram_icon"></a>
+                                        </div> -->
+                                        <!-- <div class="image-container">
+                                            <div class="image-parent">
+                                                <img src="https://goodconnext.com/card/KushalDiamonds/Assets/CircleLogo_Back.svg" alt="CircleLogo_Back" srcset="">
+                                            </div>
+                                            <div class="image-child">
+                                                <img src="https://goodconnext.com/card/KushalDiamonds/Assets/CircleLogo_Front.svg" alt="CircleLogo_Front" srcset="">
+                                            </div>
+                                        </div> -->
+                                    </div>
+
+                                    <div class="company-social-media-section">
+                                        <div class="social-media-links-left">
+                                            <a href="https://www.youtube.com/" title="Youtube" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/youtube_icon.svg" alt="youtube_icon"></a>
+                                            <a href=" https://www.facebook.com/" title="Facebook" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/facebook_icon.svg" alt="facebook_icon"></a>
+                                            <a href="https://www.instagram.com/" title="Instagram" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/Instagram_icon.svg" alt="instagram_icon"></a>
+                                            <a href="https://www.linkedin.com/company/" title="Linkedin" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/linkedin_icon.svg" alt="linkedin_icon"></a>
+                                            <!-- <a href="https://x.com/MultimetaSeo" title="X" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/xcom_icon.svg" alt="X_icon"></a> -->
+                                        </div>
+                                    </div>
+                                    <div class="footer-section">
+                                        <a href="https://goodux.in" class="footer-link" title="Visit GoodUX"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/Poweredby.svg" alt="Poweredby_logo" srcset=""></a>
+                                    </div>
+                                    <!-- <div class="branches-section">
+                                        <h3 class="branches-heading">BRANCHES</h3>
+                                        <p class="branches-list" id="branches-list">
+                                            Chennai, Salem, Madurai, Thiruvallur, Ponneri, Puzhal, Tiruttani, Kancheepuram, Kallakurichi
+                                        </p>
+                                    </div> -->
+                                <!-- <div id="loading" style="width: 60px;position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
+                                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/loading_icon.gif" alt="Loading..." width="25">
+                                </div> -->
+                            </div>
+
+                            
+                            <div class=" download-section AddtoContactsmobile" id="mobileNavContainer">
+                                <div class="bottom-nav-section active" id="mobilenav1">
+                                    <a title="Exchange Contacts" target="_blank" id="openbtnMobile"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/ExchangeContact.svg"></a>
+                                    <a id="vcarddownloadBtnMobile" title="Download VCard" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/SavetoContacts.svg" alt="VCard_icon"></a>    
+                                    <a id="qrpreviewbtnmobile" title="Download QRcode Image" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/Share_icon.svg" alt="Download_icon"></a>
+                                </div>
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- <div class="card-bg-img">
+            <img src="https://goodconnext.com/card/KushalDiamonds/Assets/MiniRobot.png" alt="">
+        </div> -->
+    </div>
+    <div class="card-section preview"  id="CardPreview">
+        <div class="card">
+            <div class="ClosebtnBlock" id="Closebtn">
+                <div class="Closebtn">
+                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/Close_btn.svg" alt="Close_btn">
+                </div>
+            </div>
+            <div class="card-content"  id="download-area">
+                <div class="card-header" id="card-banner">
+                    <div class="card-banner">
+                        <img src="https://goodconnext.com/card/KushalDiamonds/Assets/QRCode_Banner.svg" alt="Banner">
+                    </div>
+                    <div  class="profile-imagemaincontainer">
+                        <div class="profile-image-container">
+                            <div class="profile-image">
+                                <img id="profile-image-preview" src="https://goodconnext.com/card/KushalDiamonds/Assets/Profile/Profile.png" onerror='this.src="https://goodconnext.com/card/KushalDiamonds/Assets/Profile/Profile.png"' alt="profile-image"></img>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="loading-container">
+                        <div class="after-content" id="after-content-preview">
+                            <div class="name-container">
+                                <h2 class="name" id="namePreview">FullName</h2>
+                                <p class="title" id="rolePreview"> Role</p>
+                            </div>
+                            <div class="qrcode" id="qrcodePreview">
+                            </div>
+                            <div class="copyurl-section" id="copyurl-section">
+                                <a class="copyLink" href="#" id="copyLink" title="Click Here to CopyURL">
+                                    <img src="https://goodconnext.com/card/KushalDiamonds/Assets/CopyURL.svg" alt="" srcset="">
+                                </a>
+                                <a id="imgdownloadBtn" title="Click To Download" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/Download.svg" alt="Download"></a>
+                            </div>
+                        </div>
+                    <!-- <div class="footer-section">
+                        <a id="imgdownloadBtn"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/Download.svg" alt="Download"></a>
+                        <a href="https://goodux.in" class="footer-link"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/Poweredby.svg" alt="Poweredby_logo" srcset=""></a>
+                    </div> -->
+                    <div class="footer-section" id="footer-section-preview">
+                        <div class="share-section">
+                            <h4 class="share-text">Share</h4>
+                            <div class="shareon"
+                                data-title="Check out this card!">
+                                <a class="whatsapp"></a>
+                                <a class="linkedin"></a>
+                                <a class="twitter"></a>
+                                <a class="facebook"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-section" id="footer-link">
+                        <a href="https://goodux.in" class="footer-link"  title="Visit GoodUX Website" target="_blank"><img src="https://goodconnext.com/card/KushalDiamonds/Assets/Poweredby.svg" alt="Poweredby_logo" srcset=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://goodconnext.com/card/KushalDiamonds/js/index_main.js"></script>
+    <script>
+        (function () {
+            const cardName = (window.__cardName || "").trim();
+
+            if (!cardName) {
+                return;
+            }
+
+            const buildCardUrl = (value) => {
+                const targetUrl = new URL(window.location.href);
+
+                if (targetUrl.protocol === "file:") {
+                    return targetUrl;
+                }
+
+                targetUrl.pathname = `/${encodeURIComponent(value)}`;
+                targetUrl.search = "";
+                targetUrl.hash = "";
+                return targetUrl;
+            };
+
+            if (typeof window.generateQrCodePreview === "function" && typeof QRCode !== "undefined") {
+                window.generateQrCodePreview = function (value) {
+                    if (!value) {
+                        return;
+                    }
+
+                    const qrUrl = buildCardUrl(value).toString();
+
+                    QRCode.toString(qrUrl, { type: "svg", width: 240, height: 240, margin: 0 }, (err, svg) => {
+                        if (err) {
+                            return console.error("QR Preview Error:", err);
+                        }
+
+                        document.getElementById("qrcodePreview").innerHTML = svg;
+                    });
+                };
+            }
+
+            const currentUrl = new URL(window.location.href);
+            const cleanUrl = buildCardUrl(cardName);
+
+            if (
+                currentUrl.pathname !== cleanUrl.pathname ||
+                currentUrl.search.length > 0 ||
+                currentUrl.hash.length > 0
+            ) {
+                window.history.replaceState({}, document.title, cleanUrl.toString());
+            }
+        })();
+    </script>
+    <!-- <script src="https://goodconnext.com/card/KushalDiamonds/js/index_main.js"></script> -->
+
+   
+
+</body>
+</html>
