@@ -32,6 +32,7 @@
     <script>
         (function initializeCardUrlSupport() {
             const currentUrl = new URL(window.location.href);
+            const htmlFilePattern = /\/[^/]+\.[a-z0-9]+$/i;
             const decodeUrlValue = (value) => {
                 try {
                     return decodeURIComponent(value.replace(/\+/g, ' '));
@@ -39,6 +40,7 @@
                     return value;
                 }
             };
+            const isCleanPathCandidate = !currentUrl.pathname.endsWith('/');
             let cardName = currentUrl.searchParams.get('@') || '';
 
             if (!cardName) {
@@ -57,7 +59,7 @@
                 cardName = currentUrl.hash.slice(1);
             }
 
-            if (!cardName) {
+            if (!cardName && isCleanPathCandidate) {
                 const pathSegments = currentUrl.pathname.split('/').filter(Boolean);
                 const lastSegment = pathSegments[pathSegments.length - 1] || '';
 
@@ -73,6 +75,23 @@
             }
 
             window.__cardName = cardName;
+            window.__cardBasePath = (function resolveCardBasePath() {
+                if (currentUrl.protocol === 'file:') {
+                    return currentUrl.pathname;
+                }
+
+                if (htmlFilePattern.test(currentUrl.pathname)) {
+                    return currentUrl.pathname.replace(/\/[^/]+$/, '/');
+                }
+
+                if (currentUrl.search.length > 0 || currentUrl.hash.length > 0 || currentUrl.pathname.endsWith('/')) {
+                    return `${currentUrl.pathname.replace(/\/+$/, '') || ''}/`.replace(/^$/, '/');
+                }
+
+                const pathSegments = currentUrl.pathname.split('/').filter(Boolean);
+                const parentSegments = pathSegments.slice(0, -1);
+                return parentSegments.length ? `/${parentSegments.join('/')}/` : '/';
+            })();
 
             if (!window.__nativeURLSearchParams) {
                 window.__nativeURLSearchParams = window.URLSearchParams;
@@ -552,6 +571,7 @@
     <script>
         (function () {
             const cardName = (window.__cardName || "").trim();
+            const cardBasePath = window.__cardBasePath || "/";
 
             if (!cardName) {
                 return;
@@ -564,7 +584,7 @@
                     return targetUrl;
                 }
 
-                targetUrl.pathname = `/${encodeURIComponent(value)}`;
+                targetUrl.pathname = `${cardBasePath.replace(/\/+$/, "")}/${encodeURIComponent(value)}`.replace(/\/{2,}/g, "/");
                 targetUrl.search = "";
                 targetUrl.hash = "";
                 return targetUrl;
